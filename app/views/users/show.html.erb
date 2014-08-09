@@ -1,0 +1,6 @@
+<p> 
+    <%= "this is #{@user.username} s page" %>
+    <% @user.items.each do |item| %>
+    <%= render item %>
+    <% end %>
+</p>

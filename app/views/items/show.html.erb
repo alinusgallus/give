@@ -1,0 +1,7 @@
+<h2><%= @item.name %></h2>
+<br>
+
+<%= image_tag @item.item_pic.url(:medium) %>
+<%= @item.description %>
+<%= link_to 'add', '' ,class: "btn btn-primary" %>
+<%= link_to 'contact giver', '' ,class: "btn btn-primary" %>
