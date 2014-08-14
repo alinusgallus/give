@@ -15,8 +15,19 @@ def show
   @item = Item.find(params[:id])
 end
 
-def update
+def edit
+  @item = Item.find(params[:id])
+end
 
+
+def update
+  @item= Item.find(params[:id])
+  if @item.update(item_params)
+      flash[:success] = "Item updated"
+      redirect_to @item
+    else
+      render 'edit'
+    end
 end
 
 def index
@@ -30,7 +41,7 @@ end
  private
 
 def item_params
-   params.require(:item).permit(:name, :description, :item_pic)
+   params.require(:item).permit(:name, :description, :item_pic, :category_id)
 end
 
 protected

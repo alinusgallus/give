@@ -3,5 +3,9 @@
 
 <%= image_tag @item.item_pic.url(:medium) %>
 <%= @item.description %>
+<%= @item.category.name %>
 <%= link_to 'add', '' ,class: "btn btn-primary" %>
 <%= link_to 'contact giver', '' ,class: "btn btn-primary" %>
+<% if signed_in? && current_user.id==@item.user_id %>
+	<%= link_to 'edit', edit_item_path %>
+<% end %>
