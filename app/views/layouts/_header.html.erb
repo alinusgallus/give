@@ -26,6 +26,8 @@
               </a>
       <ul class="dropdown-menu">
         <li><%= link_to "my items", user_items_path(current_user) %></li>
+        <li><%= link_to "my account", user_path(current_user) %></li>
+        <li><%= link_to "edit my profile", edit_user_path(current_user) %></li>
         <li><%= link_to "sign-out", signout_path, method: "delete", class: 'active' %></li>
       </ul>
       </li>

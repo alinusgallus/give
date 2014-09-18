@@ -13,15 +13,21 @@ html {
 }
 
 body {
+
+  
+  background-image: url(image-path('1920x1080_background.jpeg'));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   
   logo{
   font-family: 'Dancing Script', Georgia, Times, serif;
   font-size: 40px;
   }
   h1 {
-    font-family: 'Dancing Script', Georgia, Times, serif;
+    font-family: Georgia, Times, serif;
     font-size: 59px;
     line-height: 60px;
+
 }
  
 p {
@@ -49,6 +55,10 @@ textarea {
   margin-bottom: 5px;
 }
 
+.navbar{
+  background-color: #FFFFFF ;
+}
+
 
 
 #error_explanation {
@@ -72,6 +82,16 @@ input, textarea, select, .uneditable-input {
   box-sizing: border-box;
 }
 
+/* thumbnails */
+.thumbnail{
+  h1{
+    font-size: 18px;
+    line-height: 24px;
+  }
+  p{
+    font-size: 14px;
+  }
+}
 
 
 #error_explanation {

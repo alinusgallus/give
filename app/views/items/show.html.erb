@@ -5,7 +5,26 @@
 <%= @item.description %>
 <%= @item.category.name %>
 <%= link_to 'add', '' ,class: "btn btn-primary" %>
-<%= link_to 'contact giver', '' ,class: "btn btn-primary" %>
+<%= link_to 'contact giver', '' ,class: "btn btn-primary", 'data-toggle'=>"modal", 'data-target' => "#myModal" %>
 <% if signed_in? && current_user.id==@item.user_id %>
 	<%= link_to 'edit', edit_item_path %>
 <% end %>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Contact giver</h4>
+      </div>
+      <div class="modal-body">
+        Enter your message here, check the textbox if you want to receive a copy of the message in your inbox
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send</button>
+      </div>
+    </div>
+  </div>
+</div>
