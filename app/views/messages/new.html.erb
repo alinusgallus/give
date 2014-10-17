@@ -1,0 +1,23 @@
+<div class="container">
+
+  <div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+  <div class="panel-title"><h5>Message</h5></div>
+ </div>
+
+  <div class="panel-body">
+<%= form_for ([@item,@message]) do |f| %>
+<%= f.label :content %>
+<%= f.text_area :content %>
+<%= f.submit "Send", class: "btn btn-large btn-warning" %>
+
+<% end %>
+</div>
+</div>
+  </div>
+  </div>
+</div>
+
+

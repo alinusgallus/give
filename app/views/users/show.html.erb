@@ -1,7 +1,21 @@
-<p> 
-   this is the user account
-
-   display all messages here
-
-   display all transactions here (transactions attributes tbd, rating, date, users involved)
-</p>
+<div class="container">
+<div class="panel panel-default">
+  <div class="panel-heading">Messages</div>
+    <table class="table">
+    	<thead>
+    	    <th>Item</th>
+        	<th>Item name</th>
+        	<th>Message</th>
+        	<th>Sent by</th>
+        </thead>
+        <tbody>
+            <% @user_messages_collection.each do |msg| %>
+            <td><%= image_tag msg.item.item_pic.url(:thumbnail) %></td>
+            <td><%= msg.item.name %></td>
+            <td><%= msg.content %></td>
+            <td><%= User.find(msg.sender_id).username %></td>
+        </tbody>
+    </table>
+   <% end %>
+  </div>
+</div>

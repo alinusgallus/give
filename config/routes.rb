@@ -1,12 +1,15 @@
 GiveApp::Application.routes.draw do
   
+
   resources :users do
-    resources :items
+    resources :items 
   end
    resources :categories
     
   resources :sessions, only: [:new, :create, :destroy]
-  resources :items 
+  resources :items do
+      resources :messages
+    end
 
 
 

@@ -15,6 +15,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_messages_collection= Array.new
+    @user.items.each do |item|
+      item.messages.each do |msg|
+        @user_messages_collection<<msg
+      end
+    end
   end
 
   def edit
