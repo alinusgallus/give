@@ -4,18 +4,26 @@
     <div class="col-md-4"><%= image_tag @item.item_pic.url(:medium) %></div>
     <div class="col-md-6">
         <h2><%= @item.name %></h2>
-        in <b><%= @item.category.name %> </b>
-        <br>
-        <br>
-        <%= @item.description %>
+        <ul>
+                <li>Category: <b><%= @item.category.name %> </b></li>
+                <li>Description: <%= @item.description %></li>
+                <li>Item Condition: </li>
+                <li>Location: </li>
+                <li>Availability: </li>
+        </ul>
     </div>
     <div class="col-md-2">
         
         <br>
-        <%= link_to 'add to wishlist', '' ,class: "btn btn-primary" %>
+        <div id="wishlist_form">
+            <% if current_user.likes?(@item)  %>
+                <%= render partial: 'items/remove_from_wishlist', object: @item %>
+            <% else %>
+                <%= render partial: 'items/add_to_wishlist', object: @item %>
+            <% end %>
+        </div>
         <br>
-        <br>
-        <%= link_to 'contact giver', new_item_message_path(@item),class: "btn btn-primary" %>
+        <%= link_to 'contact giver', new_item_message_path(@item),class: "btn btn-primary"%>    
         <br>
         <br>
         <% if signed_in? && current_user.id==@item.user_id %>
@@ -23,6 +31,8 @@
 	    <%= link_to 'edit item', edit_item_path,class: "btn btn-warning" %>
         <% end %>
         </div>
+        </div>
+  
     </div>
 </div>
 

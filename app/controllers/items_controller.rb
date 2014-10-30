@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
 before_filter :determine_scope
+before_filter :signed_in_user, only: :new
 
 def new
   @item = Item.new
@@ -50,7 +51,7 @@ protected
       @scope = if params[:user_id]
         User.find(params[:user_id]).items
       else
-        Item
+        Item.all
       end
     end
 

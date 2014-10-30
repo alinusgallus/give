@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
 has_many :items, dependent: :destroy
 
+has_many :wishlists
+has_many :wlitems, through: :wishlists
+
 
   before_save { email.downcase! }
   before_create :create_remember_token
@@ -20,6 +23,18 @@ has_many :items, dependent: :destroy
 
   def User.hash(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def likes?(item)
+    self.wlitems.any?{|wishlist_item| wishlist_item.id==item.id} 
+  end
+
+  def like(item)
+    wishlists.create!(item.id)
+  end
+
+  def unlke(item)
+    wishlists.find_by(item.id).destroy
   end
 
 

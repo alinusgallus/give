@@ -1,0 +1,5 @@
+<%= form_for(current_user.wishlists.build(item_id: @item.id),remote: true) do |f| %> 
+<%= f.hidden_field :item_id %>
+<%= f.hidden_field :user_id %>      
+<%= f.submit "Add to wishlist", class: "btn btn-primary" %>
+<%end%>

@@ -1,0 +1,6 @@
+<% @wishlists.each do |wl| %>
+	<% wl.items.each do |item| %>
+	<p><%=item.name %></p>
+	<p><%=item.description %></p>
+	<% end %>
+<% end %>

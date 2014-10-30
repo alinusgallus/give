@@ -3,6 +3,7 @@ GiveApp::Application.routes.draw do
 
   resources :users do
     resources :items 
+    resources :wishlists, only: [:create, :destroy, :index] 
   end
    resources :categories
     
@@ -11,10 +12,10 @@ GiveApp::Application.routes.draw do
       resources :messages
     end
 
+  resources :wishlists, only: [:create, :destroy]
 
 
-
-  root 'static_pages#home'
+  root 'items#index'
 
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'

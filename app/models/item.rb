@@ -1,6 +1,11 @@
 class Item < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :category
+
+	has_many :wishlists
+
+	has_many :users, through: :wishlists
+
 	has_many :messages
 
 	has_attached_file :item_pic, :styles => { :medium => "300x300", :thumb => "100x100"},:default_url => "/images/:style/missing.png"

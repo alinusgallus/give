@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016060313) do
+ActiveRecord::Schema.define(version: 20141023093858) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -56,5 +56,12 @@ ActiveRecord::Schema.define(version: 20141016060313) do
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+
+  create_table "wishlists", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
