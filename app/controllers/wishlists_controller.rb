@@ -13,6 +13,11 @@ class WishlistsController < ApplicationController
     end
     end
   end
+
+  def index
+    @wishlist_items=current_user.wlitems
+  end
+
     
   def destroy
     @item =Item.find_by params[:id]

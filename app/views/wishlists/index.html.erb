@@ -1,6 +1,24 @@
-<% @wishlists.each do |wl| %>
-	<% wl.items.each do |item| %>
-	<p><%=item.name %></p>
-	<p><%=item.description %></p>
-	<% end %>
-<% end %>
+<div class="container">
+	<div class="panel">
+		<table class="table">
+			<tr>
+				<th>Item id</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Action</th>
+			</tr>
+			
+				<% @wishlist_items.each do |item| %>
+				<tr>
+					<td><%=item.id %><</td>
+					<td><%=item.name %></td>
+					<td><%=item.description %></td>
+					<td><button>remove</button></td>
+				</tr>
+				<% end %>
+			
+			
+		</table>
+	</div>
+</div>
+
